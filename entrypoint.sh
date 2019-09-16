@@ -2,6 +2,7 @@
 set -e
 
 ACTION_WATERMARK="go-benchmark-action_b7eb8b69-badf-43e9-b776-24df51f5b5d3"
+GOROOT=
 
 add_issue_comment() {
     COMMENTS_URL=$(cat /github/workflow/event.json | jq -r .pull_request.comments_url)
