@@ -1,4 +1,4 @@
-FROM golang:1.13
+FROM golang:1.12
 
 LABEL "com.github.actions.name"="Go Benchmark"
 LABEL "com.github.actions.description"="Compare Go benchmarks"
