@@ -10,6 +10,8 @@ LABEL "repository"="https://github.com/shipt/go-benchmark-action"
 LABEL "homepage"="https://github.com/shipt/go-benchmark-action"
 LABEL "maintainer"="Wally Shirey <waltshirey@gmail.com>"
 
+RUN apk add make git
+
 # configure for private repos
 RUN git config --global url."https://$GITHUB_TOKEN:@github.com/".insteadOf "https://github.com"
 
