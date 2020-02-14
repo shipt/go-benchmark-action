@@ -42,6 +42,12 @@ run_go_benchmark() {
 }
 
 main() {
+    if [ -z ${GO_MODULES_TOKEN+x}]; then
+        echo "GO_MODULES_TOKEN not exported"
+    else
+        git config --global url."https://$GO_MODULES_TOKEN:x-oauth-basic@github.com/".insteadOf "https://github.com"
+    fi
+
     cd $GITHUB_WORKSPACE
 
     OLD_BENCHMARK_FILE=$HOME/$GITHUB_BASE_REF.txt
