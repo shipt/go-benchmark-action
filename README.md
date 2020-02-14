@@ -11,9 +11,8 @@ jobs:
     benchmark:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/setup-go@master
-        - name: Perform benchmarks
-          if: github.event_name == 'pull_request' && github.event.action == 'synchronize'
+        - uses: actions/checkout@v1
+        - name: Go benchmark
           uses: shipt/go-benchmark-action@master
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

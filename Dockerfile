@@ -12,7 +12,7 @@ LABEL "maintainer"="Wally Shirey <waltshirey@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -y jq && \
-    go get -u golang.org/x/tools/cmd/benchcmp
+    go get -u golang.org/x/perf/cmd/benchstat
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

@@ -25,7 +25,7 @@ add_issue_comment() {
 
     COMMENT="
 <!--$ACTION_WATERMARK-->
-#### \`benchcmp \`
+#### \`benchstat \`
 \`\`\`action
 $1
 \`\`\`"
@@ -52,10 +52,10 @@ main() {
     mkdir -p "$(dirname "$NEW_BENCHMARK_FILE")" && touch "$NEW_BENCHMARK_FILE"
     run_go_benchmark $GITHUB_HEAD_REF $NEW_BENCHMARK_FILE
 
-    echo "running benchcmp $OLD_BENCHMARK_FILE $NEW_BENCHMARK_FILE"
-    BENCHCMP_RESULTS=$(benchcmp "$OLD_BENCHMARK_FILE" "$NEW_BENCHMARK_FILE")
+    echo "running benchstat $OLD_BENCHMARK_FILE $NEW_BENCHMARK_FILE"
+    BENCHSTAT_RESULTS=$(benchstat "$OLD_BENCHMARK_FILE" "$NEW_BENCHMARK_FILE")
     echo "adding comment with benchmp results"
-    add_issue_comment "$BENCHCMP_RESULTS"
+    add_issue_comment "$BENCHSTAT_RESULTS"
 }
 
 main "$@"
