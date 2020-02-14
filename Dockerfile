@@ -1,4 +1,4 @@
-FROM golang:1.13
+FROM golang:1.13-alpine
 
 LABEL "com.github.actions.name"="Go Benchmark"
 LABEL "com.github.actions.description"="Compare Go benchmarks"
@@ -9,6 +9,9 @@ LABEL "version"="1.0.0"
 LABEL "repository"="https://github.com/shipt/go-benchmark-action"
 LABEL "homepage"="https://github.com/shipt/go-benchmark-action"
 LABEL "maintainer"="Wally Shirey <waltshirey@gmail.com>"
+
+# configure for private repos
+RUN git config --global url."https://$GITHUB_TOKEN:@github.com/".insteadOf "https://github.com"
 
 RUN apt-get update && \
     apt-get install -y jq && \
