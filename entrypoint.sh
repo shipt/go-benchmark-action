@@ -44,7 +44,7 @@ run_go_benchmark() {
 main() {
     go env
 
-    if [ -z ${GO_MODULES_TOKEN+x}]; then
+    if [ -z ${GO_MODULES_TOKEN+x} ]; then
         echo "GO_MODULES_TOKEN not exported"
     else
         git config --global url."https://$GO_MODULES_TOKEN:@github.com/".insteadOf "https://github.com"
